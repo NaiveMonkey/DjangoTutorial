@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'DjangoTutorial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': '/Users/buskingplay/PycharmProjects/DjangoTutorial/db.sqlite3',
+        'NAME': '/DjangoTutorial/db.sqlite3',
     }
 }
 
