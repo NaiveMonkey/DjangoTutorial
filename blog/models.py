@@ -4,12 +4,12 @@ from django.utils import timezone
 
 # Create your models here.
 class Post(models.Model):
-    # ForeignKey: 다른 모델에 대한 링크
+
     author = models.ForeignKey('auth.User')
 
-    # CharField: 글자 수가 제한된 텍스트 정의
+  
     title = models.CharField(max_length=200)
-    # TextField: 글자 수 제한이 x
+
     text = models.TextField()
 
     created_date = models.DateTimeField(
