@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/1.10/ref/settings/
 
 import os
 
+# templates을 설정해도 안되는 경우가 있으니 default로 SETTING_PATH를 항상 구현할 것!!!!
+SETTING_PATH = os.path.dirname(os.path.dirname(__file__))
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +28,10 @@ SECRET_KEY = 'qvixqw&#q8!j#*k=mni%89qt*swalmht!874)vz+-y1ouilivz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = []
+
+# pythonanywhere에 올릴 때 필요한 ALLOWED_HOSTS!
+ALLOWED_HOSTS = ['.pythonanywhere.com']
 
 
 # Application definition
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'blog',
 ]
 
+# request와 response 사이의 주요 기능 레이어
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,6 +85,8 @@ WSGI_APPLICATION = 'DjangoTutorial.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': '/Users/buskingplay/PycharmProjects/DjangoTutorial/db.sqlite3',
+        # PythonAnywhere용의 db 위치
         'NAME': '//home/ksmr1102/DjangoTutorial/db.sqlite3',
     }
 }
